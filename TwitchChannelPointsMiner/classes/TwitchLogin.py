@@ -125,10 +125,12 @@ class TwitchLogin(object):
                         use_backup_flow = True
                         break
                     else:
-                        logger.error(f"Unknown error: {login_response}")
-                        raise NotImplementedError(
-                            f"Unknown TwitchAPI error code: {err_code}"
-                        )
+                        #logger.error(f"Unknown error: {login_response}")
+                        #raise NotImplementedError(
+                        #    f"Unknown TwitchAPI error code: {err_code}"
+                        #)
+                        use_backup_flow = True
+                        break
 
                 if "access_token" in login_response:
                     self.set_token(login_response["access_token"])
